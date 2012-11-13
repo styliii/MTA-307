@@ -34,4 +34,8 @@ MTA307::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  config.twilio_sid = "AC1f184d8b46cd42d98a40a30c2c5804a3"
+  config.twilio_token = "5a53a98f0c214c9d5b76735a72155080"
+  config.twilio_phone_number = "8187244753"
 end

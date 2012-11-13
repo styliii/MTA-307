@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+subway_lines = SubwayLine.create([{name: "456"},
+                                {name: "BDFM"},
+                                {name: "G"},
+                                {name: "JZ"},
+                                {name: "L"},
+                                {name: "7"},
+                                {name: "NQR"},
+                                {name: "S"}])

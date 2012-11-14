@@ -1,5 +1,12 @@
 <%= form_for(@user) do |f| %>
   <%= f.label :email %>
   <%= f.text_field :email %>
+  <%= f.label :number %>
+  <%= f.text_field :number %>
+    </br>
+  <%= f.fields_for :subway_line_id do |s_form| %>
+    <%= s_form.select :id, subway_lines_to_select %>
+  <% end %>
+
   <%= f.submit %>
 <% end %>

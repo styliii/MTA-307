@@ -14,14 +14,12 @@ good_lines.each do |line|
   name = line.css('name')
   status = line.css('status')
 
-  dt = "#{line.css('date').text} #{line.css('time').text}"
+  date = "#{line.css('date').text} #{line.css('time').text}"
 
-  puts dt
+  parsed_time = DateTime.strptime(date, '%m/%d/%Y %H:%M%p')
 
-  # datetime =  DateTime.parse(dt) if dt
-  # puts datetime
   description = Nokogiri::HTML(line.css('text').text).text
-  # Status.create(:name => name, :status => status, :description => description)
+  Status.create(:name => name, :status => status, :description => description, :posted_date => parsed_time)
 end 
 
 # name

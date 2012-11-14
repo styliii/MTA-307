@@ -1,6 +1,6 @@
 
-desc 'import subway status'
-task :update_status => :environment do
+desc 'send sms status'
+task :send_sms_status => :environment do
    # import latest subway statuses
    # determine which subway lines aren't running TODAY
    # determine which users are associated to subway lines that aren't running

@@ -13,4 +13,11 @@ subway_lines = SubwayLine.create([{name: "456"},
                                 {name: "L"},
                                 {name: "7"},
                                 {name: "NQR"},
-                                {name: "S"}])
+                                {name: "S"},
+                                {name: "123"}])
+
+subway_lines.each do |subway_line|
+  3.times do subway_line.users.create
+  end
+end
+

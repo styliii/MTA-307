@@ -4,9 +4,7 @@
   <%= f.label :number %>
   <%= f.text_field :number %>
     </br>
-  <%= f.fields_for :subway_line_id do |s_form| %>
-    <%= s_form.select :id, subway_lines_to_select %>
-  <% end %>
+  <%= f.select :subway_line_id, subway_lines_to_select %>
 
   <%= f.submit %>
 <% end %>

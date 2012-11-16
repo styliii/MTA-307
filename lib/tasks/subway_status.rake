@@ -6,13 +6,11 @@ task :send_sms_status => :environment do
    # determine which users are associated to subway lines that aren't running
    # send twilio sms to those users
 
-   bad_status = Status.where("created_at > ?", 1.day.ago).select{|status| status.status != "GOOD SERVICE"}
+   bad_status = Status.where("created_at > ?", 1.day.ago).select{|status| status.status !~ /good/i}
    affected_lines = bad_status.collect{|status| status.subway_line }.compact
 
    affected_lines.each do |subway_line|
-    puts subway_line.id
     subway_line.users.each do |user|
-      # puts "sending sms to #{user.email}"
       TwilioClient.send_text_message(user.number) if user.number
     end
   end

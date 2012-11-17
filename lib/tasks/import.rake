@@ -3,7 +3,7 @@ require 'open-uri'
 desc 'import_status'
 task :import_status => :environment do
 
-last_status_date = Status.order(:posted_date).last.posted_date
+last_status_date = Status.order(:posted_date).last.posted_date unless Status.count ==0
 
 xml_doc = Nokogiri::HTML(open("http://www.mta.info/status/serviceStatus.txt"))
   good_lines = xml_doc.css('line')

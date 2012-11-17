@@ -11,6 +11,7 @@ task :send_sms_status => :environment do
 
    affected_lines.each do |subway_line|
     subway_line.users.each do |user|
+      # need to check user's time preference here before sending as well
       TwilioClient.send_text_message(user.number) if user.number
     end
   end
